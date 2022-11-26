@@ -11,9 +11,9 @@ from Organizer.serializers import *
 from Organizer.models import *
 
 
-class ListViewSet(viewsets.ModelViewSet):
-    queryset = List.objects.all().order_by('user_id')
-    serializer_class = ListSerializer
+class DisciplineViewSet(viewsets.ModelViewSet):
+    queryset = Discipline.objects.all()
+    serializer_class = DisciplineSerializer
 
 
 class TaskViewSet(viewsets.ModelViewSet):

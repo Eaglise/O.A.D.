@@ -81,7 +81,7 @@ WSGI_APPLICATION = 'OAD.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'Organizer',
+        'NAME': 'PIVOrganizer',
         'USER': 'db_user',
         'PASSWORD': '123',
         'HOST': 'localhost',

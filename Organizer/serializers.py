@@ -2,17 +2,15 @@ from Organizer.models import *
 from rest_framework import serializers
 
 
-class ListSerializer(serializers.ModelSerializer):
+class DisciplineSerializer(serializers.ModelSerializer):
     class Meta:
-        model = List
+        model = Discipline
         fields = '__all__'
-        depth = 2
 
 
 class TaskSerializer(serializers.ModelSerializer):
     class Meta:
         model = Task
-        # fields = ["task_id", "name", "done", 'datetime']
         fields = '__all__'
         depth = 1
 
@@ -20,7 +18,7 @@ class TaskSerializer(serializers.ModelSerializer):
 class TypeSerializer(serializers.ModelSerializer):
     class Meta:
         model = Type
-        fields = ["type_id", "name", "priority"]
+        fields = '__all__'
 
 
 class UserSerializer(serializers.ModelSerializer):
