@@ -59,3 +59,23 @@ def user(request: Request):
     return Response({
         'data': UserSerializer(request.user).data
     })
+
+
+class TasksOfTypeViewSet(viewsets.ModelViewSet):
+    serializer_class = TaskSerializer
+
+    def get_queryset(self):
+        queryset = Task.objects.all()
+        if self.request.method=='GET':
+
+            params=self.request.query_params.dict()
+            print(params)
+            if 'dis' in params.keys() and 'type' in params.keys():
+                queryset = Task.objects.filter(type_id__name=params['type'],discipline_id__name=params['dis'])
+            elif 'dis' in params.keys():
+                queryset = Task.objects.filter(discipline_id__name=params['dis'])
+            elif 'type' in params.keys():
+                queryset = Task.objects.filter(type_id__name=params['type'])
+            else:
+                queryset = Task.objects.all()
+        return queryset

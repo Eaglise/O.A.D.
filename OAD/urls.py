@@ -27,6 +27,8 @@ router.register(r'discipline', views.DisciplineViewSet)
 router.register(r'task', views.TaskViewSet)
 router.register(r'type', views.TypeViewSet)
 
+router.register(r'tasks', views.TasksOfTypeViewSet, basename='tasks-of-type')
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include(router.urls)),
